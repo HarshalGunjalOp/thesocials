@@ -86,7 +86,7 @@ export default function Navbar() {
                   Why TheSocials
                 </Link>
                 <Button asChild className="mt-4">
-                  <Link href="/">Book a call</Link>
+                  <Link href="/"><Phone className="h-6 w-6" /> Book a call</Link>
                 </Button>
               </div>
             </SheetContent>
