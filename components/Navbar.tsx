@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Zap, Phone } from "lucide-react";
+import { Menu, Zap, Phone, PhoneCall } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -14,10 +14,10 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center mx-auto">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+      <div className="container flex h-20 items-center mx-auto">
         {/* Logo - visible on all screens */}
-        <Link href="/" className="flex items-center gap-2 mr-8">
+        <Link href="/" className="flex items-center gap-2 ml-8">
           <Zap className="h-6 w-6" />
           <span className="font-bold">TheSocials</span>
         </Link>
@@ -25,19 +25,19 @@ export default function Navbar() {
         {/* Desktop Navigation - hidden on mobile */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-center lg:gap-8">
           <Link
-            href="/impact"
+            href="#impact"
             className="text-sm font-medium transition-colors hover:text-primary cursor-pointer"
           >
             Our Impact
           </Link>
           <Link
-            href="/work"
+            href="#work"
             className="text-sm font-medium transition-colors hover:text-primary cursor-pointer"
           >
             Our Work
           </Link>
           <Link
-            href="/why"
+            href="#why"
             className="text-sm font-medium transition-colors hover:text-primary cursor-pointer"
           >
             Why TheSocials
@@ -46,9 +46,13 @@ export default function Navbar() {
 
         {/* Desktop CTA Button - hidden on mobile */}
         <div className="hidden lg:flex lg:justify-end">
-          <Button asChild>
+          <Button asChild className="hover:bg-black group  bg-blue-800 group">
             <Link href="/">
-              <Phone className="h-6 w-6" /> Book a call
+              {/* Default Icon */}
+              <Phone className="h-6 w-6  transition-opacity duration-300 opacity-100 group-hover:opacity-0 scale-100 group-hover:scale-90" />
+              {/* Hover Icon */}
+              <PhoneCall className="h-6 w-6  transition-opacity duration-300 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100" />
+              Book a call
             </Link>
           </Button>
         </div>
@@ -57,7 +61,7 @@ export default function Navbar() {
         <div className="flex flex-1 justify-end lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden">
+              <Button variant="ghost" size="icon" className="lg:hidden mr-8">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
@@ -67,26 +71,26 @@ export default function Navbar() {
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
               <div className="grid gap-4 py-6">
-                <Link
-                  href="/impact"
-                  className="text-lg font-semibold transition-colors hover:text-primary"
-                >
+                <Link href="#impact" className="text-lg font-semibold">
                   Our Impact
                 </Link>
                 <Link
-                  href="/work"
+                  href="#work"
                   className="text-lg font-semibold transition-colors hover:text-primary"
                 >
                   Our Work
                 </Link>
                 <Link
-                  href="/why"
+                  href="#why"
                   className="text-lg font-semibold transition-colors hover:text-primary"
                 >
                   Why TheSocials
                 </Link>
-                <Button asChild className="mt-4">
-                  <Link href="/"><Phone className="h-6 w-6" /> Book a call</Link>
+                <Button asChild className="hover:bg-black bg-blue-800 group">
+                  <Link href="/">
+                    <PhoneCall className="h-6 w-6" />
+                    Book a call
+                  </Link>
                 </Button>
               </div>
             </SheetContent>

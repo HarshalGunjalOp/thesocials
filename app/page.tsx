@@ -1,3 +1,4 @@
+import HelpBusinesses from "@/components/HelpBusinesses";
 import { OurImpact } from "@/components/Impact";
 import { Button } from "@/components/ui/button";
 import { InfiniteScrollingLogosAnimation } from "@/components/ui/Infinite-Scrolling-Logos-Animation";
@@ -18,8 +19,8 @@ export default function Home() {
         your audience, not your product.
       </p>
       <div className="mb-[100px]">
-        <Button asChild className="w-[200px] h-[60px] bg-black">
-          <Link href="/">
+        <Button asChild className="w-[200px] h-[60px] bg-blue-800">
+          <Link href="/" className="text-lg">
             <Phone className="h-6 w-6 " /> Book a call
           </Link>
         </Button>
@@ -31,6 +32,7 @@ export default function Home() {
       <InfiniteScrollingLogosAnimation />
       <InfiniteScrollingLogosAnimationReversed />
       <OurImpact />
+      <HelpBusinesses />
     </main>
   );
 }

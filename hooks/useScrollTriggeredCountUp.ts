@@ -1,59 +1,59 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const easeOutExpo = (t: number) => {
-  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
-}
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+};
 
 const useScrollTriggeredCountUp = (
   ref: React.RefObject<HTMLElement>,
   end: number,
-  duration = 2000
+  duration = 2000,
 ) => {
-  const [count, setCount] = useState(0)
-  const isCounting = useRef(false)
-  const frameRate = 1000 / 60
-  const totalFrames = Math.round(duration / frameRate)
+  const [count, setCount] = useState(0);
+  const isCounting = useRef(false);
+  const frameRate = 1000 / 60;
+  const totalFrames = Math.round(duration / frameRate);
 
   const handleScroll = useCallback(
-    ([entry]:any) => {
+    ([entry]: any) => {
       if (entry.isIntersecting && !isCounting.current) {
-        isCounting.current = true
-        let frame = 0
+        isCounting.current = true;
+        let frame = 0;
 
         const counter = setInterval(() => {
-          frame++
-          const progress = easeOutExpo(frame / totalFrames)
-          setCount(Math.round(end * progress))
+          frame++;
+          const progress = easeOutExpo(frame / totalFrames);
+          setCount(Math.round(end * progress));
 
           if (frame === totalFrames) {
-            clearInterval(counter)
-            isCounting.current = false
+            clearInterval(counter);
+            isCounting.current = false;
           }
-        }, frameRate)
+        }, frameRate);
       } else {
-        isCounting.current = false
-        setCount(0)
+        isCounting.current = false;
+        setCount(0);
       }
     },
-    [end, frameRate, totalFrames]
-  )
+    [end, frameRate, totalFrames],
+  );
 
   useEffect(() => {
-    const observer = new IntersectionObserver(handleScroll, { threshold: 0.7 })
-    const currentRef = ref.current
+    const observer = new IntersectionObserver(handleScroll, { threshold: 0.7 });
+    const currentRef = ref.current;
 
     if (currentRef) {
-      observer.observe(currentRef)
+      observer.observe(currentRef);
     }
 
     return () => {
       if (currentRef) {
-        observer.unobserve(currentRef)
+        observer.unobserve(currentRef);
       }
-    }
-  }, [handleScroll, ref])
+    };
+  }, [handleScroll, ref]);
 
-  return count
-}
+  return count;
+};
 
-export default useScrollTriggeredCountUp
+export default useScrollTriggeredCountUp;

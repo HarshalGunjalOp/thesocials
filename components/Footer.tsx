@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
@@ -11,7 +11,10 @@ export default function Footer() {
           <p className="text-sm text-foreground">© 2024 TheSocials™</p>
           <div className="flex items-center gap-2">
             <span className="hidden text-foreground md:inline-block">|</span>
-            <Link href="mailto:hello@thesocials.com" className="text-sm text-foreground hover:text-primary">
+            <Link
+              href="mailto:hello@thesocials.com"
+              className="text-sm text-foreground hover:text-primary"
+            >
               hello@thesocials.com
             </Link>
           </div>
@@ -23,22 +26,31 @@ export default function Footer() {
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://facebook.com" aria-label="Follow us on Facebook">
+            <Link
+              href="https://facebook.com"
+              aria-label="Follow us on Facebook"
+            >
               <Facebook className="h-4 w-4" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://instagram.com" aria-label="Follow us on Instagram">
+            <Link
+              href="https://instagram.com"
+              aria-label="Follow us on Instagram"
+            >
               <Instagram className="h-4 w-4" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://linkedin.com" aria-label="Follow us on LinkedIn">
+            <Link
+              href="https://linkedin.com"
+              aria-label="Follow us on LinkedIn"
+            >
               <Linkedin className="h-4 w-4" />
             </Link>
           </Button>
         </div>
       </div>
     </footer>
-  )
+  );
 }
