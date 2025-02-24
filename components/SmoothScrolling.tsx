@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
-import React, { PropsWithChildren, ReactNode } from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import React from "react";
 
 const Lenis = ({ children }: any) => {
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <ReactLenis options={{ duration: 2 }} root>
       {children}
     </ReactLenis>
